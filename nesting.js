@@ -50,7 +50,19 @@ var employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
+const employeeUpdater = () => {
+  for (let i = 0; i < employees.length; i++) {
+    const empObj = employees[i]
+    if (empObj.firstName === 'Theo') {
+      employees.splice(i, 1)
+    } else if (empObj.firstName === 'Lorie') {
+      empObj.department = 'HR'
+    }
+  }
+  return employees
+}
+
+
 
 
 
@@ -68,7 +80,16 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
     3. Return the updated array.
 */
 
-//Code Here
+const removeDuplicates = (arr) => {
+  for (let i = 0; i < arr.length - 1; i += 1) {
+    for (let j = arr.length - 1; j > i; j -= 1) {
+      if (arr[i] === arr[j]) {
+        arr.splice(j, 1)
+      }
+    }
+  }
+  return arr
+}
 
 
 
@@ -81,7 +102,7 @@ var cat = {
     {
       name: 'Grumpy',
       activities: ['be grumpy', 'eat food']
-    }, 
+    },
     {
       name: 'Lazy Bones',
       activities: ['sleep', 'pre-sleep naps']
@@ -96,9 +117,9 @@ var cat = {
     2. Assign fluffy2ndFriend the name of Fluffy's 2nd friend.
 */
 
-//Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -139,18 +160,30 @@ var myCar = {
 */
 
 //Code Here
+const recordCleaner = () => {
+  for (let i = 0; i < myCar.accidents.length; i += 1) {
+    if (myCar.accidents[i].atFaultForAccident) {
+      myCar.accidents[i].atFaultForAccident = false
+    }
+  }
+  return myCar
+}
 
-
+// let recordCleaner = () => {
+//   myCar.accidents.map(function (accidents) {
+//     accidents.atFaultForAccident = false
+//   })
+// }
 
 ////////// PROBLEM 5 //////////
 
 // Do not edit the code below.
-var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
+var numsArr = [[1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 // Do not edit the code above.
 
 /*
   Above is an array of arrays. Use two for loops.
-    1. Write a function called 'looper'. 
+    1. Write a function called 'looper'.
     2. 'looper' should loop over the arrays.
     3.  If the number is odd, replace it with 'odd'.
         If the number is even, replace it with 'even'.
@@ -158,5 +191,21 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
+
+const looper = () => {
+  for (let i = 0; i < numsArr.length; i += 1) {
+    const smallArr = numsArr[i]
+    for (let j = 0; j < smallArr.length; j += 1) {
+      if (smallArr[j] % 2 === 0) {
+        smallArr.splice(j, 1, 'even')
+      } else {
+        smallArr.splice(j, 1, 'odd')
+      }
+    }
+  }
+  return numsArr
+}
+
+
 
 
